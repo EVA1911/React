@@ -10,4 +10,6 @@ function getGreeting(user) {
   return <h1>Hello, Stranger.</h1>;  
 }
 ```
-
+假如一个标签里面没有内容，你可以使用 /> 来闭合标签，就像 XML 语法一样：  
+`const element = <img src={user.avatarUrl} />;`  
+在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。
