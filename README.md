@@ -12,4 +12,23 @@ function getGreeting(user) {
 ```
 假如一个标签里面没有内容，你可以使用 /> 来闭合标签，就像 XML 语法一样：  
 `const element = <img src={user.avatarUrl} />;`  
-在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。
+在属性中嵌入 JavaScript 表达式时，不要在大括号外面加上引号。你应该仅使用引号（对于字符串值）或大括号（对于表达式）中的一个，对于同一属性不能同时使用这两种符号。  
+  
+Babel 会把 JSX 转译成一个名为 React.createElement() 函数调用。  
+以下两种示例代码完全等效：  
+```
+const element = (
+  <h1 className="greeting">
+    Hello, world!
+  </h1>
+);
+```  
+```
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+  
+React 元素是不可变对象。一旦被创建，你就无法更改它的子元素或者属性。一个元素就像电影的单帧：它代表了某个特定时刻的 UI。根据我们已有的知识，更新 UI 唯一的方式是创建一个全新的元素，并将其传入 ReactDOM.render()。
