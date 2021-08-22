@@ -39,4 +39,19 @@ React 只更新它需要更新的部分:React DOM 会将元素和它的子元素
   
 ## 2. 生命周期  
 在具有许多组件的应用程序中，当组件被销毁时释放所占用的资源是非常重要的。当组件第一次被渲染到 DOM 中的时候，就为其设置一个计时器。这在 React 中被称为“挂载（mount）”。同时，当 DOM 中组件被删除的时候，应该清除计时器。这在 React 中被称为“卸载（unmount）”。  
-我们可以为 class 组件声明一些特殊的方法，当组件挂载或卸载时就会去执行这些方法，这些方法叫做“生命周期方法”。
+我们可以为 class 组件声明一些特殊的方法，当组件挂载或卸载时就会去执行这些方法，这些方法叫做“生命周期方法”。  
+  
+## 3.组件&Props
+当 React 元素为用户自定义组件时，它会将 JSX 所接收的属性（attributes）以及子组件（children）转换为单个对象传递给组件，这个对象被称之为 “props”。  
+例如，这段代码会在页面上渲染 “Hello, Sara”：
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const element = <Welcome name="Sara" />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
