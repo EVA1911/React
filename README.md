@@ -55,3 +55,8 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
+我们调用 ReactDOM.render() 函数，并传入`<Welcome name="Sara" />`作为参数。
+React调用 Welcome 组件，并将 `{name: 'Sara'}` 作为 props 传入。
+Welcome 组件将 `<h1>Hello, Sara</h1>` 元素作为返回值。
+React DOM 将 DOM 高效地更新为`<h1>Hello, Sara</h1>`。
+组件名称必须以大写字母开头。
