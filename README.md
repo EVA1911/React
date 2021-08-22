@@ -59,4 +59,28 @@ ReactDOM.render(
 React调用 Welcome 组件，并将 `{name: 'Sara'}` 作为 props 传入。
 Welcome 组件将 `<h1>Hello, Sara</h1>` 元素作为返回值。
 React DOM 将 DOM 高效地更新为`<h1>Hello, Sara</h1>`。
-组件名称必须以大写字母开头。
+组件名称必须以大写字母开头。  
+  
+我们可以创建一个可以多次渲染 Welcome 组件的 App 组件：
+```
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Welcome name="Sara" />
+      <Welcome name="Cahal" />
+      <Welcome name="Edite" />
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
+```
+  
+组件无论是使用函数声明还是通过 class 声明，都决不能修改自身的 props。所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。
